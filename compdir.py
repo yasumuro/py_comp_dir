@@ -59,7 +59,6 @@ def compfileex(srcfile,tgtfile):
 	
 
 def comp_single_dir( srcdir, tgtdir):
-	print('comp_single_dir')
 	details = []
 	if not os.path.isdir(srcdir):
 		print(f"{srcdir} is not a directory")
@@ -102,7 +101,7 @@ def comp_single_dir( srcdir, tgtdir):
 	return details
 
 def existense_check(tgtdir, srcdir):
-	non_exitense_list =[]
+	non_existense_list =[]
 	
 	files = glob.glob(tgtdir +'\\*')
 	for f in files:
@@ -128,7 +127,7 @@ def existense_check(tgtdir, srcdir):
 				print(f"target dir:{f} exists only on target dir")
 				non_existense_list.append( {'path': f,'reason':'only on target dir'})
 				
-	return details
+	return non_existense_list
 	
 if len(sys.argv) <3 or len(sys.argv) > 4:
 	print(f"Usage: {sys.argv[0]} <source dir> <target dir> [<log file name>]", file=sys.error)
